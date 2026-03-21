@@ -1,0 +1,16 @@
+.dropdown-item {
+    padding: 6px;
+    margin-left: auto;
+
+    border-radius: 5px;    
+}
+.dropdown-item a{
+    color: black;
+}
+.dropdown-item a:hover{
+    color: black;
+}
+
+.dropdown-item:hover{
+    background-color: whitesmoke;
+}
