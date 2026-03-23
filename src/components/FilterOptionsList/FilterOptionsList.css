@@ -1,0 +1,16 @@
+.filter-options {
+    width: 15%;
+    padding: 10px;
+
+    border-radius: 5px;
+    box-shadow: 0 0 2px black;
+
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+
+.options-list {
+    display: flex;
+    flex-direction: column;
+}

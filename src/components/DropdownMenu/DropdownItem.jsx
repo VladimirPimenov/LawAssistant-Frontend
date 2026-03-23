@@ -4,9 +4,11 @@ import "./DropdownItem.css"
 
 const DropdownItem = (props) => {
     return (
-        <div className="dropdown-item">
-            <Link to={props.ref == null ? "#" : props.ref}>{props.children}</Link>
-        </div>
+        <Link to={props.ref == null ? "#" : props.ref}>
+            <div className="dropdown-item">
+                {props.children}
+            </div>
+        </Link>
     )
 }
 

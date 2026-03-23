@@ -1,0 +1,14 @@
+.docs-page {
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    margin: 10px;
+}
+
+.docs-container {
+    display: flex;
+    justify-content: space-between;
+
+    height: 100vh;
+}

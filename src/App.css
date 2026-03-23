@@ -3,11 +3,16 @@
     margin: 0;
 }
 
-header{
+header {
     height: 50px;
     position:sticky;
     top:0;
 
     background-color: white;
     box-shadow: 0 0 3px black;
+}
+
+.appContainer {
+    max-width: 1500px;
+    margin: 0 auto;
 }

@@ -1,0 +1,12 @@
+.doc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+    margin: 10px;
+
+    box-shadow: 0 0 2px black;
+    border-radius: 5px;
+    background-color:white;
+}

@@ -21,7 +21,7 @@ const Navbar = () => {
                         </DropdownMenu>
                     </NavbarItem>
                     <NavbarItem title={"Уведомления"}/>
-                    <NavbarItem title={"Поддержка"}/>
+                    <NavbarItem title={"О продукте"}/>
                 </div>
             </nav>
         </header>

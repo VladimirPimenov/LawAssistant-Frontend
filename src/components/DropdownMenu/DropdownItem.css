@@ -1,14 +1,8 @@
 .dropdown-item {
     padding: 6px;
     margin-left: auto;
-
+    font-size: 15px;
     border-radius: 5px;    
-}
-.dropdown-item a{
-    color: black;
-}
-.dropdown-item a:hover{
-    color: black;
 }
 
 .dropdown-item:hover{
