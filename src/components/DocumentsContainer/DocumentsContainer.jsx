@@ -1,11 +1,9 @@
-import React from "react";
 import "./DocumentsContainer.css"
-import DocumentItem from "./DocumentItem";
 
-const DocumentsContainer = ({docs}) => {
+const DocumentsContainer = (props) => {
     return (
         <div className="documents-container">
-            {docs.map(doc => <DocumentItem doc={doc} />)}
+            {props.children}
         </div>
     )
 }

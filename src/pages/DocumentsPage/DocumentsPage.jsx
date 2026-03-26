@@ -1,9 +1,10 @@
-import React from "react";
 import "./DocumentsPage.css"
-import FilterOptionsList from "../../components/FilterOptionsList/FilterOptionsList"
-import DocumentsContainer from "../../components/DocumentsContainer/DocumentsContainer"
+
 import PageHeader from "../../components/PageHeader/PageHeader"
+import FilterOptionsList from "../../components/FilterOptionsList/FilterOptionsList"
 import FilterOption from "../../components/FilterOptionsList/FilterOption";
+import DocumentsContainer from "../../components/DocumentsContainer/DocumentsContainer"
+import DocumentItem from "../../components/DocumentItem/DocumentItem";
 
 const DocumentsPage = ({docs}) => {
     return (
@@ -15,7 +16,10 @@ const DocumentsPage = ({docs}) => {
                     <FilterOption>По дате создания</FilterOption>
                     <FilterOption>Сначала непроверенные</FilterOption>
                 </FilterOptionsList>
-                <DocumentsContainer docs={docs} />
+                
+                <DocumentsContainer>
+                    {docs.map(doc => <DocumentItem doc={doc}/>)}
+                </DocumentsContainer>
             </div>
         </div>
     )

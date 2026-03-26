@@ -1,9 +1,10 @@
-import React from "react";
 import "./ReportsPage.css"
+
+import PageHeader from "../../components/PageHeader/PageHeader"
 import FilterOptionsList from "../../components/FilterOptionsList/FilterOptionsList"
 import FilterOption from "../../components/FilterOptionsList/FilterOption"
-import ReportsContainer from "../../components/ReportsContainer/ReportsContainer"
-import PageHeader from "../../components/PageHeader/PageHeader"
+import DocumentsContainer from "../../components/DocumentsContainer/DocumentsContainer";
+import ReportItem from "../../components/ReportItem/ReportItem";
 
 const ReportsPage = ({reports}) => {
     return (
@@ -14,7 +15,10 @@ const ReportsPage = ({reports}) => {
                     <FilterOption>По дате проверки</FilterOption>
                     <FilterOption>По проценту совпадения</FilterOption>
                 </FilterOptionsList>
-                <ReportsContainer reports={reports} />
+                
+                <DocumentsContainer>
+                    {reports.map(report => <ReportItem report={report} />)}
+                </DocumentsContainer>
             </div>
         </div>
     )
