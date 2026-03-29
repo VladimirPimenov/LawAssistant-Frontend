@@ -9,7 +9,6 @@ import ReportItem from "../../components/ReportItem/ReportItem";
 const ReportsPage = ({reports}) => {
     return (
         <div className="docs-page">
-            <PageHeader>Отчёты</PageHeader>
             <div className="docs-container">
                 <FilterOptionsList>
                     <FilterOption>По дате проверки</FilterOption>
@@ -17,6 +16,7 @@ const ReportsPage = ({reports}) => {
                 </FilterOptionsList>
                 
                 <DocumentsContainer>
+                    <PageHeader>Отчёты</PageHeader>
                     {reports.map(report => <ReportItem report={report} />)}
                 </DocumentsContainer>
             </div>

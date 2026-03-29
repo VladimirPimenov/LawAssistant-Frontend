@@ -9,7 +9,6 @@ import DocumentItem from "../../components/DocumentItem/DocumentItem";
 const DocumentsPage = ({docs}) => {
     return (
         <div className="docs-page">
-            <PageHeader>Коллективные договоры</PageHeader>
             <div className="docs-container">
                 <FilterOptionsList>
                     <FilterOption>По названию</FilterOption>
@@ -18,8 +17,10 @@ const DocumentsPage = ({docs}) => {
                 </FilterOptionsList>
                 
                 <DocumentsContainer>
+                    <PageHeader>Коллективные договоры</PageHeader>
                     {docs.map(doc => <DocumentItem doc={doc}/>)}
                 </DocumentsContainer>
+                
             </div>
         </div>
     )

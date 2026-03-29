@@ -8,11 +8,11 @@ import ReportsPage from "./pages/ReportsPage/ReportsPage";
 
 function App() {
   const docs = [  
-    {id: 1, title: "Документ 1", createdDate:"21.03.2026", hasFile: true},
-    {id: 2, title: "Документ 2", createdDate:"21.03.2026", hasFile: false},
-    {id: 3, title: "Документ 3", createdDate:"21.03.2026", hasFile: false},
-    {id: 4, title: "Документ 4", createdDate:"21.03.2026", hasFile: false},
-    {id: 5, title: "Документ 5", createdDate:"22.03.2026", hasFile: false},
+    {id: 1, title: "Документ 1", authors: ["Автор1", "Автор2"], createdDate:"21.03.2026", hasFile: true},
+    {id: 2, title: "Документ 2", authors: ["Автор1", "Автор2"], createdDate:"21.03.2026", hasFile: false},
+    {id: 3, title: "Документ 3", authors: ["Автор1", "Автор2", "Автор3"], createdDate:"21.03.2026", hasFile: false},
+    {id: 4, title: "Документ 4", authors: ["Автор1"], createdDate:"21.03.2026", hasFile: false},
+    {id: 5, title: "Документ 5", authors: ["Автор1"], createdDate:"22.03.2026", hasFile: false},
   ]
   const reports = [
     {id: 1, title: "Отчёт 1", createdDate:"21.03.2026"},
