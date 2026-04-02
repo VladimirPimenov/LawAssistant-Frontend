@@ -1,9 +1,9 @@
 import "./DocumentsPage.css"
 
-import PageHeader from "../../components/PageHeader/PageHeader"
+import ContainerHeader from "../../components/ItemsContainer/ContainerHeader/ContainerHeader"
 import FilterOptionsList from "../../components/FilterOptionsList/FilterOptionsList"
 import FilterOption from "../../components/FilterOptionsList/FilterOption";
-import DocumentsContainer from "../../components/DocumentsContainer/DocumentsContainer"
+import ItemsContainer from "../../components/ItemsContainer/ItemsContainer"
 import DocumentItem from "../../components/DocumentItem/DocumentItem";
 
 const DocumentsPage = ({docs}) => {
@@ -16,10 +16,10 @@ const DocumentsPage = ({docs}) => {
                     <FilterOption>Сначала непроверенные</FilterOption>
                 </FilterOptionsList>
                 
-                <DocumentsContainer>
-                    <PageHeader>Коллективные договоры</PageHeader>
+                <ItemsContainer>
+                    <ContainerHeader>Коллективные договоры</ContainerHeader>
                     {docs.map(doc => <DocumentItem doc={doc}/>)}
-                </DocumentsContainer>
+                </ItemsContainer>
                 
             </div>
         </div>

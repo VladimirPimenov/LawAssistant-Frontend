@@ -1,9 +1,9 @@
 import "./ReportsPage.css"
 
-import PageHeader from "../../components/PageHeader/PageHeader"
+import ContainerHeader from "../../components/ItemsContainer/ContainerHeader/ContainerHeader"
 import FilterOptionsList from "../../components/FilterOptionsList/FilterOptionsList"
 import FilterOption from "../../components/FilterOptionsList/FilterOption"
-import DocumentsContainer from "../../components/DocumentsContainer/DocumentsContainer";
+import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import ReportItem from "../../components/ReportItem/ReportItem";
 
 const ReportsPage = ({reports}) => {
@@ -15,10 +15,10 @@ const ReportsPage = ({reports}) => {
                     <FilterOption>По проценту совпадения</FilterOption>
                 </FilterOptionsList>
                 
-                <DocumentsContainer>
-                    <PageHeader>Отчёты</PageHeader>
+                <ItemsContainer>
+                    <ContainerHeader>Отчёты</ContainerHeader>
                     {reports.map(report => <ReportItem report={report} />)}
-                </DocumentsContainer>
+                </ItemsContainer>
             </div>
         </div>
     )

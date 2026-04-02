@@ -1,9 +1,18 @@
-.page-header {
+.container-header {
     padding: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     color:black;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     box-shadow: 0 0 1px gray;
     border-radius: 5px;
+}
+
+img {
+    width:25px;
+    height: 25px;
 }
