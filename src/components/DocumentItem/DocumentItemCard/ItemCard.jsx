@@ -1,5 +1,10 @@
 import "./ItemCard.css"
 
+import editIcon from "../../../assets/icons/document-edit.png"
+import removeIcon from "../../../assets/icons/document-remove.png"
+
+import LinkButton from "../../LinkButton/LinkButton"
+
 const ItemCard = ({doc}) => {
     return (
         <div className="panel">
@@ -10,6 +15,10 @@ const ItemCard = ({doc}) => {
                 }
             </div>
             <div>Дата составления: {doc.createdDate}</div>
+            <div className="options-list">
+                <LinkButton icon={editIcon} ref="/update-doc" title="Редактировать документ" />
+                <LinkButton icon={removeIcon} title="Удалить документ"  />
+            </div>
         </div>
     )
 }

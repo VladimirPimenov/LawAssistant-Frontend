@@ -1,0 +1,109 @@
+.doc-form-page {
+    display: flex;
+
+    min-height: 100vh;
+}
+
+.doc-form {
+    display: flex;
+    flex-direction: column;
+
+    width:20%;
+    margin: 10px 20px;
+    padding: 50px;
+
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 1px black;
+}
+
+.doc-text{
+    width:80%;
+    margin: 10px 20px;
+    padding: 20px;
+
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 1px black;
+}
+
+.file-field {
+    display: flex;
+    justify-content: center;
+}
+
+.doc-form h1 {
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.doc-form input {
+    margin: 20px 0;
+
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.doc-form input:focus {
+    outline: none;
+}
+
+.doc-form button {
+    margin: 20px;
+    padding: 10px;
+
+    border: none;
+    border-radius: 5px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.submit-button {
+    color: white;
+    background-color: royalblue;
+}
+
+.submit-button:hover {
+    background-color: rgb(100, 134, 238);
+}
+
+.cancel-button {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 1px black;
+}
+
+.file-label {
+    display: inline-block;
+    margin: 0 20px;
+    padding: 10px;
+
+    border-radius: 5px;
+
+    background-color: royalblue;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.file-label:hover {
+    background-color: rgb(100, 134, 238);
+}
+
+#title {
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#file {
+  display: none;
+}

@@ -3,9 +3,9 @@ import "./FilterOptionsList.css"
 
 const FilterOptionsList = (props) => {
     return (
-        <div className="filter-options">
+        <div className="filter-options-container">
             Сортировать по
-            <div className="options-list">
+            <div className="filter-options">
                 {props.children}
             </div>
         </div>

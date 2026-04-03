@@ -1,4 +1,4 @@
-.filter-options {
+.filter-options-container {
     width: 15%;
     padding: 10px;
 
@@ -10,7 +10,7 @@
     background-color: white;
 }
 
-.options-list {
+.filter-options {
     display: flex;
     flex-direction: column;
 }

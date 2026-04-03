@@ -1,10 +1,12 @@
 import { Route, Routes } from "react-router";
 import "./App.css"
+
 import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import DocumentsPage from "./pages/DocumentsPage/DocumentsPage";
 import ReportsPage from "./pages/ReportsPage/ReportsPage";
+import DocumentFormPage from "./pages/DocumentFormPage/DocumentFormPage";
 
 function App() {
   const docs = [  
@@ -30,6 +32,8 @@ function App() {
           <Route path="/profile" element={<ProfilePage />}/>
           <Route path="/docs" element={<DocumentsPage docs={docs}/>}/>
           <Route path="/reports" element={<ReportsPage reports={reports}/>}/>
+          <Route path="/create-doc" element={<DocumentFormPage formTitle="Добавить документ"/>}/>
+          <Route path="/update-doc" element={<DocumentFormPage formTitle={"Редактировать документ"}/>}/>
         </Routes>
       </div>
     </div>
