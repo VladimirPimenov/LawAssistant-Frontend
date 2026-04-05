@@ -5,19 +5,19 @@ import removeIcon from "../../../assets/icons/items_container/remove.png"
 
 import LinkButton from "../../LinkButton/LinkButton"
 
-const ItemCard = ({doc}) => {
+const ItemCard = ({doc, onRemoveDoc}) => {
     return (
         <div className="panel">
             <div className="authors-list">
                 Авторы:&nbsp;
                 {
-                    doc.authors.map((author, i) => <div>{author}{i != doc.authors.length-1 && ","}&nbsp;</div>)
+                    doc.authors.map((author, i) => <div key={i}>{author.name}{i != doc.authors.length-1 && ","}&nbsp;</div>)
                 }
             </div>
             <div>Дата составления: {doc.createdDate}</div>
             <div className="options-list">
-                <LinkButton icon={editIcon} ref="/update-doc" title="Редактировать документ" />
-                <LinkButton icon={removeIcon} title="Удалить документ"  />
+                <LinkButton icon={editIcon} ref={`/docs/update-doc/${doc.id}`} title="Редактировать документ" />
+                <LinkButton icon={removeIcon} onClick={onRemoveDoc} docId={doc.id} title="Удалить документ"  />
             </div>
         </div>
     )

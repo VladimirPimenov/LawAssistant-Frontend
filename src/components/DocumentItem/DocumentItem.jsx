@@ -8,7 +8,7 @@ import ItemCard from './DocumentItemCard/ItemCard';
 import ItemCardButton from './DocumentItemCard/ItemCardButton';
 import DocumentTitle from "./DocumentTitle";
 
-const DocumentItem = ({doc}) => {
+const DocumentItem = ({doc, onRemoveDoc}) => {
     const [isPanelVisible, setPanelVisible] = useState(false)
 
     return (
@@ -22,7 +22,7 @@ const DocumentItem = ({doc}) => {
                         isPanelOpened={isPanelVisible}/>
                 </div>
             </div>
-            {isPanelVisible && <ItemCard doc={doc}/>}
+            {isPanelVisible && <ItemCard doc={doc} onRemoveDoc={onRemoveDoc}/>}
         </div>
     )
 }

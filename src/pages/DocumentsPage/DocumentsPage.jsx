@@ -9,7 +9,7 @@ import ItemsContainer from "../../components/ItemsContainer/ItemsContainer"
 import DocumentItem from "../../components/DocumentItem/DocumentItem";
 import LinkButton from "../../components/LinkButton/LinkButton";
 
-const DocumentsPage = ({docs}) => {
+const DocumentsPage = ({docs, onRemoveDoc}) => {
     return (
         <div className="docs-page">
             <div className="docs-container">
@@ -22,9 +22,11 @@ const DocumentsPage = ({docs}) => {
                 <ItemsContainer>
                     <ContainerHeader>
                         Коллективные договоры
-                        <LinkButton icon={addButton} title="Добавить документ" ref="/create-doc"/>
+                        <LinkButton icon={addButton} title="Добавить документ" ref="/docs/create-doc"/>
                         </ContainerHeader>
-                    {docs.map(doc => <DocumentItem doc={doc}/>)}
+                    {docs.map(doc => 
+                        <DocumentItem doc={doc} key={doc.id} onRemoveDoc={onRemoveDoc}/>
+                    )}
                 </ItemsContainer>
             </div>
         </div>
