@@ -1,4 +1,4 @@
-import reportIcon from '../../assets/icons/report.png';
+import reportIcon from '../../assets/icons/report_icons/report.png';
 import "./ReportItem.css"
 import ReportTitle from "./ReportTitle";
 

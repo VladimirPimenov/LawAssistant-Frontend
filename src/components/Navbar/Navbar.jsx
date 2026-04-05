@@ -1,5 +1,6 @@
-import React from "react";
 import "./Navbar.css"
+import { Link } from "react-router";
+
 import NavbarItem from "./NavbarItem";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import DropdownItem from "../DropdownMenu/DropdownItem";
@@ -8,10 +9,11 @@ const Navbar = () => {
     return (
         <header>
             <nav>
-                <div className="logo">
-                    LawAssistant
-                </div>
-
+                <Link to="/">
+                    <div className="logo">
+                        LawAssistant
+                    </div>
+                </Link>
                 <div className="navbar-options">
                     <NavbarItem title={"Личный кабинет"}>
                         <DropdownMenu>

@@ -1,6 +1,6 @@
 import { useState } from "react"
-import activeButtonIcon from "../../../assets/icons/doc-panel-button-active.png"
-import deactiveButtonIcon from "../../../assets/icons/doc-panel-button-deactive.png"
+import activeButtonIcon from "../../../assets/icons/items_container/panel-button-active.png"
+import deactiveButtonIcon from "../../../assets/icons/items_container/panel-button-deactive.png"
 
 import "./ItemCardButton.css"
 

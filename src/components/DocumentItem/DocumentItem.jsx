@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import documentIcon from '../../assets/icons/document.png';
-import warningIcon from "../../assets/icons/no-doc-warn.png"
+import documentIcon from '../../assets/icons/document_icons/document.png';
+import warningIcon from "../../assets/icons/items_container/no-doc-warn.png"
 
 import "./DocumentItem.css"
 import ItemCard from './DocumentItemCard/ItemCard';

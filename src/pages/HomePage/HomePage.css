@@ -1,0 +1,22 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-cards-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-page h1 {
+    padding: 50px 0;
+
+    background-color: white;
+    box-shadow: 0 0 1px black;    
+
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 28px;
+    font-weight: lighter;
+    text-align: center;
+}

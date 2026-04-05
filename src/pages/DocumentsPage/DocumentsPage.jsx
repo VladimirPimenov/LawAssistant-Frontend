@@ -1,6 +1,6 @@
 import "./DocumentsPage.css"
 
-import addButton from "../../assets/icons/add-button.png"
+import addButton from "../../assets/icons/items_container/add.png"
 
 import ContainerHeader from "../../components/ItemsContainer/ContainerHeader/ContainerHeader"
 import FilterOptionsList from "../../components/FilterOptionsList/FilterOptionsList"

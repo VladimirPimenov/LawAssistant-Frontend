@@ -1,9 +1,14 @@
 .dropdown{
     position: absolute;
     top: 57px;
+    width: 100px;
     padding: 5px;
 
     box-shadow: 0 0 1px black;
     border-radius: 5px;
     background-color:  white;
+}
+
+.dropdown a {
+    padding: 0px;
 }

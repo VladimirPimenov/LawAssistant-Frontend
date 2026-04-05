@@ -1,7 +1,7 @@
 import "./ItemCard.css"
 
-import editIcon from "../../../assets/icons/document-edit.png"
-import removeIcon from "../../../assets/icons/document-remove.png"
+import editIcon from "../../../assets/icons/items_container/edit.png"
+import removeIcon from "../../../assets/icons/items_container/remove.png"
 
 import LinkButton from "../../LinkButton/LinkButton"
 
