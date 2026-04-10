@@ -1,7 +1,20 @@
+header {
+    height: 50px;
+    position:sticky;
+
+    top:0;
+    z-index: 10;
+
+    background-color: white;
+    box-shadow: 0 0 1px black;
+}
+
 nav {
     padding: 0 20px;
     height: 100%;
-
+    max-width: 1500px;
+    margin: 0 auto;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
