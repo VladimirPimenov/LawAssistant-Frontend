@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router"
 
 import AuthorsList from "../../components/AuthorsList/AuthorsList"
 import AuthorSelector from "../../components/AuthorSelector/AuthorSelector"
+import FileInput from "../../components/FileInput/FileInput"
 
 const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument, lawyers}) => {
     const {id} = useParams()
@@ -87,11 +88,7 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
                     <AuthorsList authors={docAuthors} onRemoveAuthor={onRemoveAuthor}/>
                 </div>
 
-                {doc == null 
-                && <div className="file-field">
-                    <input type="file" id="file"/>
-                    <label htmlFor="file" className="file-label">Загрузить файл документа</label>
-                </div>}
+                {doc == null && <FileInput text="Загрузить файл документа" />}
                 <button type="submit" className="submit-button">Сохранить документ</button>
                 <button type="button" className="cancel-button" onClick={onCancel}>Отмена</button>
             </form> 

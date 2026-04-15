@@ -1,0 +1,45 @@
+.file-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.file-label {
+    display: inline-block;
+    margin: 0 20px;
+    padding: 10px;
+
+    border-radius: 5px;
+
+    background-color: royalblue;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.file-label:hover {
+    background-color: rgb(100, 134, 238);
+}
+
+.file-name {
+    margin-top: 5px;
+    font-size: 12px;
+    cursor: default;
+}
+
+#none-file {
+    color: rgb(0, 0, 0 , 0.5);
+}
+
+#none-file:hover {
+    color:black
+}
+
+#file {
+  display: none;
+}
