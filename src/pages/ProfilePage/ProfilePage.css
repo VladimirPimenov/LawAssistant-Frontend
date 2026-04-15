@@ -1,0 +1,45 @@
+.profile-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container {
+    padding: 30px;
+    margin: 10px;
+
+    border-radius: 5px;
+    background-color: white;
+
+    width: 50%;
+}
+
+.profile-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-name-email {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    font-size: 16pt;
+}
+
+.profile-email {
+    font-size: 10pt;
+}
+
+.notifications-list {
+
+}
+
+.profile-icon {
+    width: 70px;
+    height: 70px;
+}

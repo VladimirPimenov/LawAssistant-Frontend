@@ -1,0 +1,19 @@
+.author-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 5px;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 16px;
+}
+
+.author-row button {
+    color: white;
+    background-color: #ef4444;
+}

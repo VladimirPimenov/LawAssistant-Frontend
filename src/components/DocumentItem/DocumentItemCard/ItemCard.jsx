@@ -11,7 +11,7 @@ const ItemCard = ({doc, onRemoveDoc}) => {
             <div className="authors-list">
                 Авторы:&nbsp;
                 {
-                    doc.authors.map((author, i) => <div key={i}>{author.name}{i != doc.authors.length-1 && ","}&nbsp;</div>)
+                    doc.authors.map((author, i) => <div key={i}>{author.firstName} {author.lastName}{i != doc.authors.length-1 && ","}&nbsp;</div>)
                 }
             </div>
             <div>Дата составления: {doc.createdDate}</div>

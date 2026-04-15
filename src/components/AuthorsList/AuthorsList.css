@@ -1,0 +1,11 @@
+.authors-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 10px;
+    min-height: 50px;
+
+    border-radius: 5px;
+    background-color: whitesmoke;
+}

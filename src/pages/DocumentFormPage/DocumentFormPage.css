@@ -16,7 +16,7 @@
     border-radius: 10px;
 }
 
-.doc-text{
+.doc-viewer {
     width:80%;
     margin: 10px 20px;
     padding: 20px;
@@ -28,6 +28,18 @@
 .file-field {
     display: flex;
     justify-content: center;
+}
+
+.authors-container {
+    margin: 0 0 20px 0;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.authors-container button {
+    margin: 0 10px;
 }
 
 .doc-form h1 {
@@ -50,7 +62,6 @@
 }
 
 .doc-form button {
-    margin: 20px;
     padding: 10px;
 
     border: none;
@@ -63,6 +74,8 @@
 }
 
 .submit-button {
+    margin: 20px;
+
     color: white;
     background-color: royalblue;
 }
@@ -72,6 +85,8 @@
 }
 
 .cancel-button {
+    margin: 20px;
+
     background-color: white;
     color: black;
     box-shadow: 0 0 1px black;
@@ -81,6 +96,7 @@
     display: inline-block;
     margin: 0 20px;
     padding: 10px;
+    width: 100%;
 
     border-radius: 5px;
 

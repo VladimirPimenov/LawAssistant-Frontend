@@ -1,0 +1,16 @@
+.author-selector {
+    display: flex;
+    flex-direction: row;
+}
+
+.author-selector select {
+    padding: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+
+    border-radius: 5px;
+}
+
+.authors-selector select:focus {
+    outline: none;
+}
