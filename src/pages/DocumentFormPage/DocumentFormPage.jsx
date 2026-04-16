@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router"
 import AuthorsList from "../../components/AuthorsList/AuthorsList"
 import AuthorSelector from "../../components/AuthorSelector/AuthorSelector"
 import FileInput from "../../components/FileInput/FileInput"
+import DocumentViewer from "../../components/DocumentViewer/DocumentViewer"
 
 const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument, lawyers}) => {
     const {id} = useParams()
@@ -14,6 +15,7 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
     const [doc, setDoc] = useState(null)
     const [docTitle, setDocTitle] = useState("")
     const [docAuthors, setDocAuthors] = useState([])
+    const [docFile, setDocFile] = useState(null)
 
     const onSubmitForm = (e) => {
         e.preventDefault()
@@ -60,6 +62,12 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
         setDocAuthors(docAuthors.filter(author => author.lawyerId != removedAuthor.lawyerId))
     }
 
+    const onFileSelected = async (e) => {
+        const file = e.target.files[0]
+        
+        setDocFile(file)
+    }
+
     useEffect(() => {
         if(id != null){
             const foundDoc = getDocument(id)
@@ -88,12 +96,12 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
                     <AuthorsList authors={docAuthors} onRemoveAuthor={onRemoveAuthor}/>
                 </div>
 
-                {doc == null && <FileInput text="Загрузить файл документа" />}
+                {doc == null && <FileInput onFileSelected={onFileSelected} text="Загрузить файл документа" accept=".docx"/>}
                 <button type="submit" className="submit-button">Сохранить документ</button>
                 <button type="button" className="cancel-button" onClick={onCancel}>Отмена</button>
             </form> 
             <div className="doc-viewer">
-                Текст документа
+                <DocumentViewer docFile={docFile}/>
             </div>
         </div>
     )

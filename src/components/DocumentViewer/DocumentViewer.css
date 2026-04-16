@@ -1,0 +1,36 @@
+.document-viewer {
+    margin: 10px 20px;
+    padding: 20px;
+    max-height: 100vh;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    
+    overflow-y: auto;
+    
+    border-radius: 10px; 
+    background-color: white;
+}
+
+.no-doc-message {
+    display: flex;
+    align-items: center;
+
+    font-size: 20px;
+}
+
+.document-viewer p {
+    text-indent: 1.25em;
+    text-align: justify;
+}
+
+.document-viewer ul {
+    padding-left: 1.25em;
+    text-align: justify;
+}
+
+.document-viewer ol {
+    padding-left: 1.25em;
+    text-align: justify;
+}
