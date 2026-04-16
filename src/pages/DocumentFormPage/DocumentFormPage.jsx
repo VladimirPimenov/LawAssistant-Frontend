@@ -69,12 +69,16 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
     }
 
     useEffect(() => {
-        if(id != null){
-            const foundDoc = getDocument(id)
-            setDoc(foundDoc)
-            setDocTitle(foundDoc.title)
-            setDocAuthors(foundDoc.authors)
+        const getDoc = async () => {
+            if(id != null) {
+                const foundDoc = await getDocument(id)
+                console.log(foundDoc)
+                setDoc(foundDoc)
+                setDocTitle(foundDoc.title)
+                setDocAuthors(foundDoc.authors)
+            }
         }
+        getDoc()
     }, [id, getDocument])
 
     return (

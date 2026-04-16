@@ -25,7 +25,7 @@ const DocumentsPage = ({docs, onRemoveDoc}) => {
                         <LinkButton icon={addButton} title="Добавить документ" ref="/docs/create-doc"/>
                         </ContainerHeader>
                     {docs.map(doc => 
-                        <DocumentItem doc={doc} key={doc.id} onRemoveDoc={onRemoveDoc}/>
+                        <DocumentItem doc={doc} key={doc.contractId} onRemoveDoc={onRemoveDoc}/>
                     )}
                 </ItemsContainer>
             </div>

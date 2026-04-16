@@ -16,7 +16,7 @@ const DocumentItem = ({doc, onRemoveDoc}) => {
             <div className="doc-item-panel">
                 <DocumentTitle icon={documentIcon}>{doc.title}</DocumentTitle>
                 <div className="doc-item-buttons">
-                    {!doc.hasFile && <img title='Файл документа не загружен' src={warningIcon}/>}
+                    {!doc.fileKey && <img title='Файл документа не загружен' src={warningIcon}/>}
                     <ItemCardButton 
                         onClick={() => setPanelVisible(!isPanelVisible)}
                         isPanelOpened={isPanelVisible}/>
