@@ -20,3 +20,26 @@ export const getLawyerContracts = async (lawyerId) => {
         return null
     return responce.json()
 }
+
+export const updateContract = async (contract) => {
+    const responce = await fetch(
+        `${CONTRACT_API_URL}/update-contract`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(contract)
+    })
+
+    if(!responce.ok)
+        return null
+    return responce.json()
+}
+
+export const removeContract = async (contractId) => {
+    const responce = await fetch(
+        `${CONTRACT_API_URL}/delete-contract?contractId=${contractId}`,
+        {method: "DELETE"}
+    )
+
+    if(!responce.ok)
+        return null
+}

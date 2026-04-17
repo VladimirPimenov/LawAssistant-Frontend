@@ -72,7 +72,6 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
         const getDoc = async () => {
             if(id != null) {
                 const foundDoc = await getDocument(id)
-                console.log(foundDoc)
                 setDoc(foundDoc)
                 setDocTitle(foundDoc.title)
                 setDocAuthors(foundDoc.authors)

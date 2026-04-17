@@ -10,7 +10,8 @@ import DocumentsPage from "./pages/DocumentsPage/DocumentsPage";
 import ReportsPage from "./pages/ReportsPage/ReportsPage";
 import DocumentFormPage from "./pages/DocumentFormPage/DocumentFormPage";
 
-import { getContract, getLawyerContracts } from "./services/contract";
+import { getContract, getLawyerContracts, removeContract, updateContract } from "./services/contract";
+import { getLawyersList } from "./services/lawyer";
 
 function App() {
   const [docs, setDocs] = useState([])
@@ -24,12 +25,18 @@ function App() {
 
   const testLawyer = {lawyerId: 5, firstName: "Владимир", lastName: "Пименов", email: "pimenov@gmail.com"}
 
-  useEffect(() => {
-    const fetchContracts = async() => {
+  const fetchContracts = async() => {
       let contracts = await getLawyerContracts(testLawyer.lawyerId)
       setDocs(contracts)
     }
+  const fetchLawyers = async() => {
+    let lawyers = await getLawyersList()
+    setLawyers(lawyers)
+  }
+
+  useEffect(() => {
     fetchContracts()
+    fetchLawyers()
   }, [])
 
   const getDocument = async (id) => {
@@ -38,17 +45,19 @@ function App() {
   }
 
   const addDocument = (newDoc) => {
-    setDocs([...docs, newDoc])
+    //setDocs([...docs, newDoc])
   }
 
-  const editDocument = (updatedDoc) => {
-    setDocs(docs.map(doc => 
-      doc.id == updatedDoc.id ? updatedDoc : doc
-    ))
+  const editDocument = async (updatedDoc) => {
+    const updatedContract = await updateContract(updatedDoc)
+    fetchContracts()
+
+    return updatedContract
   }
 
-  const removeDocument = (docId) => {
-    setDocs(docs.filter(doc => doc.id != docId))
+  const removeDocument = async (docId) => {
+    const removedContractId = await removeContract(docId)
+    fetchContracts()
   }
 
   // const editLawyer = (updatedLawyer) => {

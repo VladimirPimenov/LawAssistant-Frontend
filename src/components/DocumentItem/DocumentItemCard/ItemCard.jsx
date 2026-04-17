@@ -14,7 +14,7 @@ const ItemCard = ({doc, onRemoveDoc}) => {
                     doc.authors.map((author, i) => <div key={i}>{author.firstName} {author.lastName}{i != doc.authors.length-1 && ","}&nbsp;</div>)
                 }
             </div>
-            <div>Дата составления: {doc.createdDate}</div>
+            <div>Дата создания: {doc.createdDate.replace('T', ' ')}</div>
             <div className="options-list">
                 <LinkButton icon={editIcon} ref={`/docs/update-doc/${doc.contractId}`} title="Редактировать документ" />
                 <LinkButton icon={removeIcon} onClick={onRemoveDoc} docId={doc.contractId} title="Удалить документ"  />
