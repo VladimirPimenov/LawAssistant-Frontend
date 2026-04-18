@@ -1,45 +1,52 @@
+import axios from "axios"
+
 const API_URL = "https://localhost:7286"
 const CONTRACT_API_URL = `${API_URL}/contract`
 
 export const getContract = async (contractId) => {
-    const responce = await fetch(
-        `${CONTRACT_API_URL}/get-contract?contractId=${contractId}`
-    )
-
-    if(!responce.ok)
-        return null
-    return responce.json()
+    return axios
+        .get(`${CONTRACT_API_URL}/get-contract`, {params: {contractId}})
+        .then(responce => {
+            return responce.data
+        })
+        .catch(error => {
+            console.log(error)
+            return null
+        })
 }
 
 export const getLawyerContracts = async (lawyerId) => {
-    const responce = await fetch(
-        `${CONTRACT_API_URL}/get-lawyer-contracts?lawyerId=${lawyerId}`
-    )
-
-    if(!responce.ok)
-        return null
-    return responce.json()
+    return axios
+        .get(`${CONTRACT_API_URL}/get-lawyer-contracts`, {params:{lawyerId}})
+        .then(responce => {
+            return responce.data
+        })
+        .catch(error => {
+            console.log(error)
+            return null
+        })
 }
 
 export const updateContract = async (contract) => {
-    const responce = await fetch(
-        `${CONTRACT_API_URL}/update-contract`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(contract)
-    })
-
-    if(!responce.ok)
-        return null
-    return responce.json()
+    return axios
+        .put(`${CONTRACT_API_URL}/update-contract`, contract)
+        .then(responce => {
+            return responce.data
+        })
+        .catch(error => {
+            console.log(error)
+            return null
+        })
 }
 
 export const removeContract = async (contractId) => {
-    const responce = await fetch(
-        `${CONTRACT_API_URL}/delete-contract?contractId=${contractId}`,
-        {method: "DELETE"}
-    )
-
-    if(!responce.ok)
-        return null
+    return axios
+        .delete(`${CONTRACT_API_URL}/delete-contract`, {params: {contractId}} )
+        .then(responce => {
+            return responce.data
+        })
+        .catch(error => {  
+            console.log(error)
+            return null
+        })
 }
