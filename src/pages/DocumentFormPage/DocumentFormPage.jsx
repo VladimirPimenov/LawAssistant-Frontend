@@ -3,6 +3,8 @@ import "./DocumentFormPage.css"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
 
+import { getContractFile } from "../../services/contract"
+
 import AuthorsList from "../../components/AuthorsList/AuthorsList"
 import AuthorSelector from "../../components/AuthorSelector/AuthorSelector"
 import FileInput from "../../components/FileInput/FileInput"
@@ -27,12 +29,13 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
             const updatedDoc = {...doc, title: docTitle, authors: docAuthors}
             onEditDocument(updatedDoc)
         } else {
+            if(!docFile)
+                return
+                
             const newDoc = {
-                id: Date.now(),
                 title: docTitle,
-                authors:[...docAuthors],
-                createdDate: new Date().toLocaleDateString(),
-                hasFile: false
+                authorsId: docAuthors.map(a => a.lawyerId),
+                contractFile: docFile
             }
             onAddDocument(newDoc)
         }
@@ -72,9 +75,11 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
         const getDoc = async () => {
             if(id != null) {
                 const foundDoc = await getDocument(id)
+                const foundDocFile = await getContractFile(id)
                 setDoc(foundDoc)
                 setDocTitle(foundDoc.title)
                 setDocAuthors(foundDoc.authors)
+                setDocFile(foundDocFile)
             }
         }
         getDoc()

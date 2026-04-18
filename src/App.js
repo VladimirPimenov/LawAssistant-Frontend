@@ -10,12 +10,12 @@ import DocumentsPage from "./pages/DocumentsPage/DocumentsPage";
 import ReportsPage from "./pages/ReportsPage/ReportsPage";
 import DocumentFormPage from "./pages/DocumentFormPage/DocumentFormPage";
 
-import { getContract, getLawyerContracts, removeContract, updateContract } from "./services/contract";
+import { createContract, getContract, getLawyerContracts, removeContract, updateContract } from "./services/contract";
 import { getLawyersList } from "./services/lawyer";
 
 function App() {
-  const [docs, setDocs] = useState([])
-  const [lawyers, setLawyers] = useState([])
+  const [docs, setDocs] = useState(null)
+  const [lawyers, setLawyers] = useState(null)
 
   const reports = [
     {id: 1, title: "Отчёт 1", createdDate:"21.03.2026"},
@@ -44,8 +44,9 @@ function App() {
     return contract
   }
 
-  const addDocument = (newDoc) => {
-    //setDocs([...docs, newDoc])
+  const addDocument = async (newContract) => {
+    const createdContract = await createContract(newContract)
+    fetchContracts()
   }
 
   const editDocument = async (updatedDoc) => {
@@ -59,12 +60,6 @@ function App() {
     const removedContractId = await removeContract(docId)
     fetchContracts()
   }
-
-  // const editLawyer = (updatedLawyer) => {
-  //   setLawyer(lawyers.map(lawyer => 
-  //     lawyer.lawyerId == updatedLawyer.lawyerId ? updatedLawyer : lawyer
-  //   ))
-  // } 
 
   return (
     <div className="App">
