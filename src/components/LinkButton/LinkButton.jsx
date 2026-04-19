@@ -1,4 +1,5 @@
 import "./LinkButton.css"
+
 import {Link} from "react-router"
 
 const LinkButton = (props) => {
@@ -10,7 +11,10 @@ const LinkButton = (props) => {
     return (
         <div>
             <Link to={props.ref == null ? "#" : props.ref}>
-                <img src={props.icon} title={props.title} onClick={handleClick}/>
+                {props.icon 
+                ? <img src={props.icon} title={props.title} onClick={handleClick}/>
+                : <div className="button-with-text">{props.title}</div>
+                }
             </Link>
         </div>
     )

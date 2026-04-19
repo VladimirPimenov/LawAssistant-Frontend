@@ -11,7 +11,7 @@ import LinkButton from "../../components/LinkButton/LinkButton";
 
 import { useEffect, useState } from "react";
 
-const DocumentsPage = ({docs, onRemoveDoc}) => {
+const DocumentsPage = ({docs, onRemoveDoc, onCreateReport}) => {
     return (
         <div className="docs-page">
             <div className="docs-container">
@@ -31,7 +31,13 @@ const DocumentsPage = ({docs, onRemoveDoc}) => {
                         : (docs.length == 0 
                             ? <div className="container-message">Документы не найдены</div>
                             : docs.map(doc => 
-                                <DocumentItem doc={doc} key={doc.contractId} onRemoveDoc={onRemoveDoc}/>)
+                                <DocumentItem 
+                                    doc={doc} 
+                                    key={doc.contractId} 
+                                    onRemoveDoc={onRemoveDoc}
+                                    onCreateReport={onCreateReport}
+                                />
+                            )
                         )
                     }
                 </ItemsContainer>

@@ -9,7 +9,7 @@ import ItemCard from './DocumentItemCard/ItemCard';
 import ItemCardButton from './DocumentItemCard/ItemCardButton';
 import DocumentTitle from "./DocumentTitle";
 
-const DocumentItem = ({doc, onRemoveDoc}) => {
+const DocumentItem = ({doc, onRemoveDoc, onCreateReport}) => {
     const [isPanelVisible, setPanelVisible] = useState(false)
 
     return (
@@ -23,7 +23,7 @@ const DocumentItem = ({doc, onRemoveDoc}) => {
                         isPanelOpened={isPanelVisible}/>
                 </div>
             </div>
-            {isPanelVisible && <ItemCard doc={doc} onRemoveDoc={onRemoveDoc}/>}
+            {isPanelVisible && <ItemCard doc={doc} onRemoveDoc={onRemoveDoc} onCreateReport={onCreateReport}/>}
         </div>
     )
 }

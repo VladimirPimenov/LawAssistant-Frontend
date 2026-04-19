@@ -1,0 +1,28 @@
+.report-view-page {
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px;
+}
+
+.report-view-page .page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.report-view-page .report-title {
+    display: flex;
+    justify-content: center;
+
+    width: 85%;
+    padding: 10px;
+    margin: 0 10px;
+
+    background-color: white;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: black;
+}

@@ -12,7 +12,9 @@ import DocumentFormPage from "./pages/DocumentFormPage/DocumentFormPage";
 
 import { createContract, getContract, getLawyerContracts, removeContract, updateContract } from "./services/contract";
 import { getLawyersList } from "./services/lawyer";
-import { getLawyerReports, removeReport } from "./services/report";
+import { getLawyerReports, removeReport, createReport } from "./services/report";
+import DocumentViewPage from "./pages/DocumentViewPage/DocumentViewPage";
+import ReportViewPage from "./pages/ReportViewPage/ReportViewPage";
 
 function App() {
   const [docs, setDocs] = useState(null)
@@ -69,6 +71,12 @@ function App() {
     fetchReports()
   }
 
+  const createRep = async (contractId) => {
+    const report = await createReport(contractId)
+    console.log(report)
+    fetchReports()
+  }
+
   return (
     <div className="App">
       <Navbar />
@@ -86,7 +94,10 @@ function App() {
           />
           <Route 
             path="/docs" 
-            element={<DocumentsPage docs={docs} onRemoveDoc={removeDocument}/>}
+            element={<DocumentsPage 
+              docs={docs} 
+              onRemoveDoc={removeDocument}
+              onCreateReport={createRep}/>}
           />
           <Route 
             path="/reports" 
@@ -108,6 +119,14 @@ function App() {
               lawyers={lawyers}
               getDocument={getDocument}
               onEditDocument={editDocument}/>}
+          />
+          <Route
+            path="docs/:id"
+            element={<DocumentViewPage />}
+          />
+          <Route
+            path="reports/:id"
+            element={<ReportViewPage />}
           />
         </Routes>
       </div>

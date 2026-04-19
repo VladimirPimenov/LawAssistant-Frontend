@@ -29,7 +29,7 @@ export const getLawyerReports = async (lawyerId) => {
 
 export const createReport = async (contractId) => {
     return axios
-        .post(`${REPORT_API_URL}/create-report`, {params:{contractId}})
+        .post(`${REPORT_API_URL}/create-report`, null, {params:{contractId}})
         .then(responce => {
             return responce.data
         })
