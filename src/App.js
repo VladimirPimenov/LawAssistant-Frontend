@@ -12,31 +12,34 @@ import DocumentFormPage from "./pages/DocumentFormPage/DocumentFormPage";
 
 import { createContract, getContract, getLawyerContracts, removeContract, updateContract } from "./services/contract";
 import { getLawyersList } from "./services/lawyer";
+import { getLawyerReports, removeReport } from "./services/report";
 
 function App() {
   const [docs, setDocs] = useState(null)
   const [lawyers, setLawyers] = useState(null)
-
-  const reports = [
-    {id: 1, title: "Отчёт 1", createdDate:"21.03.2026"},
-    {id: 2, title: "Отчёт 2", createdDate:"21.03.2026"},
-    {id: 3, title: "Отчёт 3", createdDate:"21.03.2026"},
-  ]
+  const [reports, setReports] = useState(null)
 
   const testLawyer = {lawyerId: 5, firstName: "Владимир", lastName: "Пименов", email: "pimenov@gmail.com"}
 
   const fetchContracts = async() => {
       let contracts = await getLawyerContracts(testLawyer.lawyerId)
       setDocs(contracts)
-    }
+  }
+
   const fetchLawyers = async() => {
     let lawyers = await getLawyersList()
     setLawyers(lawyers)
   }
 
+  const fetchReports = async() => {
+    let reports = await getLawyerReports(testLawyer.lawyerId)
+    setReports(reports)
+  }
+
   useEffect(() => {
     fetchContracts()
     fetchLawyers()
+    fetchReports()
   }, [])
 
   const getDocument = async (id) => {
@@ -61,6 +64,11 @@ function App() {
     fetchContracts()
   }
 
+  const removeRep = async (reportId) => {
+    const removedReportId = await removeReport(reportId)
+    fetchReports()
+  }
+
   return (
     <div className="App">
       <Navbar />
@@ -82,7 +90,9 @@ function App() {
           />
           <Route 
             path="/reports" 
-            element={<ReportsPage reports={reports}/>}
+            element={<ReportsPage 
+              reports={reports}
+              onRemoveReport={removeRep}/>}
           />
           <Route 
             path="/docs/create-doc" 

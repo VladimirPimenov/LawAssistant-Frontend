@@ -26,12 +26,14 @@ const DocumentsPage = ({docs, onRemoveDoc}) => {
                         Коллективные договоры
                         <LinkButton icon={addButton} title="Добавить документ" ref="/docs/create-doc"/>
                     </ContainerHeader>
-                    {docs == null || docs.length == 0 
-                        ? <div className="container-message">Документы не найдены!</div>
-                        : docs.map(doc => 
-                            <DocumentItem doc={doc} key={doc.contractId} onRemoveDoc={onRemoveDoc}/>)
+                    {docs == null
+                        ? <div className="container-message">Ошибка при загрузке документов!</div>
+                        : (docs.length == 0 
+                            ? <div className="container-message">Документы не найдены</div>
+                            : docs.map(doc => 
+                                <DocumentItem doc={doc} key={doc.contractId} onRemoveDoc={onRemoveDoc}/>)
+                        )
                     }
-                    
                 </ItemsContainer>
             </div>
         </div>

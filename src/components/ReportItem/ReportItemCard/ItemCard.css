@@ -1,0 +1,30 @@
+.panel {
+    padding: 10px;
+    position: relative;
+    top:-3px;
+    z-index: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 0 1px black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    background-color:whitesmoke;
+}
+
+.options-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding-top: 5px;
+}
+
+.options-list img {
+    width: 25px;
+    height: 25px;
+    padding: 0 10px;
+}

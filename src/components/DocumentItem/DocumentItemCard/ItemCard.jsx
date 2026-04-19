@@ -17,7 +17,7 @@ const ItemCard = ({doc, onRemoveDoc}) => {
             <div>Дата создания: {doc.createdDate.replace('T', ' ')}</div>
             <div className="options-list">
                 <LinkButton icon={editIcon} ref={`/docs/update-doc/${doc.contractId}`} title="Редактировать документ" />
-                <LinkButton icon={removeIcon} onClick={onRemoveDoc} docId={doc.contractId} title="Удалить документ"  />
+                <LinkButton icon={removeIcon} onClick={onRemoveDoc} id={doc.contractId} title="Удалить документ"  />
             </div>
         </div>
     )

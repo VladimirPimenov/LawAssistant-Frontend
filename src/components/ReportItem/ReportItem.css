@@ -1,12 +1,24 @@
 .report-item {
     display: flex;
+    flex-direction: column;
+
+    margin: 10px;
+}
+
+.report-item-panel {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 1;
 
     padding: 10px;
-    margin: 10px;
 
     box-shadow: 0 0 1px black;
     border-radius: 5px;
     background-color:white;
+}
+
+.report-item-buttons img {
+    width: 20px;
+    height: 20px;
 }

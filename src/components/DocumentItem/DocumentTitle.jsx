@@ -4,7 +4,7 @@ const DocumentTitle = (props) => {
     return (
         <div className="doc-title">
             <img src={props.icon} />
-            {props.children}
+            Документ №{props.children.contractId} «{props.children.title}»
         </div>
     )
 }

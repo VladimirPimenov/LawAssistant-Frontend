@@ -4,7 +4,7 @@ import {Link} from "react-router"
 const LinkButton = (props) => {
     const handleClick = () => {
         if(props.onClick){
-            props.onClick(props.docId)
+            props.onClick(props.id)
         }
     }
     return (

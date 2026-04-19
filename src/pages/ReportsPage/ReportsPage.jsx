@@ -6,7 +6,7 @@ import FilterOption from "../../components/FilterOptionsList/FilterOption"
 import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import ReportItem from "../../components/ReportItem/ReportItem";
 
-const ReportsPage = ({reports}) => {
+const ReportsPage = ({reports, onRemoveReport}) => {
     return (
         <div className="docs-page">
             <div className="docs-container">
@@ -17,7 +17,18 @@ const ReportsPage = ({reports}) => {
                 
                 <ItemsContainer>
                     <ContainerHeader>Отчёты</ContainerHeader>
-                    {reports.map(report => <ReportItem report={report} />)}
+                    {reports == null
+                        ? <div className="container-message">Ошибка при загрузке отчётов!</div>
+                        : (reports.length == 0 
+                            ? <div className="container-message">Отчёты не найдены</div>
+                            : reports.map(report => 
+                                <ReportItem 
+                                    report={report} 
+                                    key={report.reportId} 
+                                    onRemoveReport={onRemoveReport}
+                                />)
+                        )
+                    }
                 </ItemsContainer>
             </div>
         </div>
