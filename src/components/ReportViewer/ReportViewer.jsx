@@ -8,7 +8,11 @@ const ReportViewer = ({report}) => {
                 : <div className="report-text">
                     {report.comparisonResults.map(result => (
                         <div dangerouslySetInnerHTML={
-                            { __html: `<p>${result.text} <span style="color:red">Статья: ${result.articleId}</span></p>` }
+                            { __html: `<p>${result.text} <span style="color:red">
+                                ${result.matchValue <= 0.000001 
+                                    ? "Нет совпадений"
+                                    : `Статья: ${result.articleId}`
+                                }</span></p>` }
                         } />
                     ))}
                 </div>

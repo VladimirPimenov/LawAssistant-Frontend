@@ -56,6 +56,10 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
         if(authorId == "")
             return
 
+        let authorsId = docAuthors.map(author => author.lawyerId)
+        if(authorsId.includes(Number(authorId)))
+            return
+
         const newAuthor = getLawyerById(authorId)
 
         setDocAuthors([...docAuthors, newAuthor])

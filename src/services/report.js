@@ -7,6 +7,7 @@ export const getReport = async (reportId) => {
     return axios
         .get(`${REPORT_API_URL}/get-report`, {params:{reportId}})
         .then(responce => {
+            console.log(responce.data)
             return responce.data
         })
         .catch(error => {
