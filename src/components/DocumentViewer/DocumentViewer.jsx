@@ -1,6 +1,7 @@
 import "./DocumentViewer.css"
 
 import { useEffect, useState } from "react"
+
 import mammoth from "mammoth"
 
 const DocumentViewer = ({docFile}) => {

@@ -3,27 +3,26 @@ import "./DocumentViewPage.css"
 import { Link, useParams } from "react-router"
 import { useState, useEffect } from "react"
 
-import { getContract, getContractFile } from "../../services/contract"
 import ContainerHeader from "../../components/ItemsContainer/ContainerHeader/ContainerHeader"
 import DocumentViewer from "../../components/DocumentViewer/DocumentViewer"
 import LinkButton from "../../components/LinkButton/LinkButton"
 
-const DocumentViewPage = () => {
+const DocumentViewPage = ({getDoc, getDocFile}) => {
     const {id} = useParams()
 
     const [docTitle, setDocTitle] = useState("")
     const [docFile, setDocFile] = useState(null)
 
     useEffect(() => {
-            const getDoc = async () => {
+            const getDocument = async () => {
                 if(id != null) {
-                    const foundDoc = await getContract(id)
-                    const foundDocFile = await getContractFile(id)
+                    const foundDoc = await getDoc(id)
+                    const foundDocFile = await getDocFile(id)
                     setDocTitle(foundDoc.title)
                     setDocFile(foundDocFile)
                 }
             }
-            getDoc()
+            getDocument()
         }, [id])
 
     return (

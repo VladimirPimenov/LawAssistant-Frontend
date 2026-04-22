@@ -3,14 +3,12 @@ import "./DocumentFormPage.css"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
 
-import { getContractFile } from "../../services/contract"
-
 import AuthorsList from "../../components/AuthorsList/AuthorsList"
 import AuthorSelector from "../../components/AuthorSelector/AuthorSelector"
 import FileInput from "../../components/FileInput/FileInput"
 import DocumentViewer from "../../components/DocumentViewer/DocumentViewer"
 
-const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument, lawyers}) => {
+const DocumentFormPage = ({formTitle, getDoc, getDocFile, onAddDoc, onEditDoc, lawyers}) => {
     const {id} = useParams()
     const navigate = useNavigate()
 
@@ -27,7 +25,7 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
 
         if(doc) {
             const updatedDoc = {...doc, title: docTitle, authors: docAuthors}
-            onEditDocument(updatedDoc)
+            onEditDoc(updatedDoc)
         } else {
             if(!docFile)
                 return
@@ -37,7 +35,7 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
                 authorsId: docAuthors.map(a => a.lawyerId),
                 contractFile: docFile
             }
-            onAddDocument(newDoc)
+            onAddDoc(newDoc)
         }
 
         navigate("/docs")
@@ -76,18 +74,18 @@ const DocumentFormPage = ({formTitle, getDocument, onAddDocument, onEditDocument
     }
 
     useEffect(() => {
-        const getDoc = async () => {
+        const getDocument = async () => {
             if(id != null) {
-                const foundDoc = await getDocument(id)
-                const foundDocFile = await getContractFile(id)
+                const foundDoc = await getDoc(id)
+                const foundDocFile = await getDocFile(id)
                 setDoc(foundDoc)
                 setDocTitle(foundDoc.title)
                 setDocAuthors(foundDoc.authors)
                 setDocFile(foundDocFile)
             }
         }
-        getDoc()
-    }, [id, getDocument])
+        getDocument()
+    }, [id, getDoc])
 
     return (
         <div className="doc-form-page">

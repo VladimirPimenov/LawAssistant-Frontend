@@ -3,25 +3,23 @@ import "./ReportViewPage.css"
 import { Link, useParams } from "react-router"
 import { useState, useEffect } from "react"
 
-import { getReport } from "../../services/report"
-
 import ContainerHeader from "../../components/ItemsContainer/ContainerHeader/ContainerHeader"
 import LinkButton from "../../components/LinkButton/LinkButton"
 import ReportViewer from "../../components/ReportViewer/ReportViewer"
 
-const ReportViewPage = () => {
+const ReportViewPage = ({getRep}) => {
     const {id} = useParams()
 
     const [report, setReport] = useState(null)
 
     useEffect(() => {
-            const getRep = async () => {
+            const getReport = async () => {
                 if(id != null) {
-                    const foundReport = await getReport(id)
+                    const foundReport = await getRep(id)
                     setReport(foundReport)
                 }
             }
-            getRep()
+            getReport()
         }, [id])
 
     return (

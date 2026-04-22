@@ -3,16 +3,17 @@ import "./App.css"
 import { Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
 
+import { createContract, getContract, getLawyerContracts, removeContract, updateContract, getContractFile } from "./services/contract";
+import { getLawyersList } from "./services/lawyer";
+import { getLawyerReports, removeReport, createReport, getReport } from "./services/report";
+
 import Navbar from "./components/Navbar/Navbar";
+
 import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import DocumentsPage from "./pages/DocumentsPage/DocumentsPage";
 import ReportsPage from "./pages/ReportsPage/ReportsPage";
 import DocumentFormPage from "./pages/DocumentFormPage/DocumentFormPage";
-
-import { createContract, getContract, getLawyerContracts, removeContract, updateContract } from "./services/contract";
-import { getLawyersList } from "./services/lawyer";
-import { getLawyerReports, removeReport, createReport } from "./services/report";
 import DocumentViewPage from "./pages/DocumentViewPage/DocumentViewPage";
 import ReportViewPage from "./pages/ReportViewPage/ReportViewPage";
 
@@ -45,8 +46,13 @@ function App() {
   }, [])
 
   const getDocument = async (id) => {
-    const contract = await getContract(id)
-    return contract
+    const doc = await getContract(id)
+    return doc
+  }
+
+  const getDocumentFile = async (id) => {
+    const docFile = await getContractFile(id)
+    return docFile
   }
 
   const addDocument = async (newContract) => {
@@ -66,16 +72,21 @@ function App() {
     fetchContracts()
   }
 
+  const getRep = async (reportId) => {
+    const report = await getReport(reportId)
+    return report
+  }
+
+  const createRep = async (contractId) => {
+    const report = await createReport(contractId)
+    fetchReports()
+  }
+
   const removeRep = async (reportId) => {
     const removedReportId = await removeReport(reportId)
     fetchReports()
   }
 
-  const createRep = async (contractId) => {
-    const report = await createReport(contractId)
-    console.log(report)
-    fetchReports()
-  }
 
   return (
     <div className="App">
@@ -110,23 +121,27 @@ function App() {
             element={<DocumentFormPage 
               lawyers={lawyers}
               formTitle="Добавить документ"
-              onAddDocument={addDocument}/>}
+              onAddDoc={addDocument}/>}
               />
           <Route 
             path="/docs/update-doc/:id" 
             element={<DocumentFormPage 
               formTitle={"Редактировать документ"}
               lawyers={lawyers}
-              getDocument={getDocument}
-              onEditDocument={editDocument}/>}
+              getDoc={getDocument}
+              getDocFile={getDocumentFile}
+              onEditDoc={editDocument}/>}
           />
           <Route
             path="docs/:id"
-            element={<DocumentViewPage />}
+            element={<DocumentViewPage 
+              getDoc={getDocument}
+              getDocFile={getDocumentFile}/>}
           />
           <Route
             path="reports/:id"
-            element={<ReportViewPage />}
+            element={<ReportViewPage 
+              getRep={getRep}/>}
           />
         </Routes>
       </div>
