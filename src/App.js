@@ -17,6 +17,8 @@ import DocumentFormPage from "./pages/DocumentFormPage/DocumentFormPage";
 import DocumentViewPage from "./pages/DocumentViewPage/DocumentViewPage";
 import ReportViewPage from "./pages/ReportViewPage/ReportViewPage";
 
+import { ToastContainer, toast } from "react-toastify";
+
 function App() {
   const [docs, setDocs] = useState(null)
   const [lawyers, setLawyers] = useState(null)
@@ -26,23 +28,36 @@ function App() {
 
   const fetchContracts = async() => {
       let contracts = await getLawyerContracts(testLawyer.lawyerId)
+
       setDocs(contracts)
+      return contracts
   }
 
   const fetchLawyers = async() => {
     let lawyers = await getLawyersList()
+
     setLawyers(lawyers)
+    return lawyers
   }
 
   const fetchReports = async() => {
     let reports = await getLawyerReports(testLawyer.lawyerId)
+
     setReports(reports)
+    return reports
   }
 
   useEffect(() => {
-    fetchContracts()
-    fetchLawyers()
-    fetchReports()
+    const loadData = async () => {
+      const [contractsData, reportsData, lawyersData] =  await Promise.all([
+        fetchContracts(),
+        fetchReports(),
+        fetchLawyers()
+      ])
+      if(contractsData == null || reportsData == null || lawyersData == null)
+        toast.error("При загрузке произошла непредвиденная ошибка")
+    }
+    loadData()
   }, [])
 
   const getDocument = async (id) => {
@@ -80,6 +95,8 @@ function App() {
   const createRep = async (contractId) => {
     const report = await createReport(contractId)
     fetchReports()
+
+    toast.success("Отчёт составлен", {autoClose: 2000})
   }
 
   const removeRep = async (reportId) => {
@@ -144,6 +161,7 @@ function App() {
               getRep={getRep}/>}
           />
         </Routes>
+        <ToastContainer />
       </div>
     </div>
   );
