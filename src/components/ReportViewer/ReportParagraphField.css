@@ -1,0 +1,61 @@
+.report-paragraph-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    margin: 10px 0;
+}
+
+.report-paragraph-text {
+    width: 95%;
+    margin-right: 20px;   
+    margin-left: 20px;
+
+    display: flex;
+    align-items: center;
+
+    text-align: justify;
+
+    border-top: 2px solid whitesmoke;
+    border-bottom: 2px solid whitesmoke;
+}
+
+.report-paragraph-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;  
+
+    padding: 5px 10px;
+
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+.report-paragraph-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.report-paragraph-buttons button {
+    padding: 2px 5px;
+    margin: 5px 0;
+
+    background-color: white;
+    border: none;
+}
+
+.report-paragraph-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 5px 10px;
+    
+    text-align: center;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+.variants-counter {
+    margin-right: 5px;
+}

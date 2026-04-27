@@ -16,6 +16,7 @@ const ReportViewPage = ({getRep}) => {
             const getReport = async () => {
                 if(id != null) {
                     const foundReport = await getRep(id)
+                    console.log(foundReport)
                     setReport(foundReport)
                 }
             }
