@@ -1,12 +1,11 @@
 .report-viewer {
     margin: 10px 20px;
     padding: 20px;
-    max-height: 100vh;
     min-height: 100vh;
 
     display: flex;
     justify-content: center;
-    overflow-y: auto;
+
     
     border-radius: 10px; 
     background-color: white;

@@ -32,7 +32,7 @@ const ReportParagraphField = ({reportParagraph}) => {
             <div className="report-paragraph-article">
                 <div>
                     Статья:
-                    {reportParagraph.comparisonResults[currentVariant].article.articleId}
+                    «{reportParagraph.comparisonResults[currentVariant].article.title}»
                 </div>
                 <div>
                     Совпадение:
