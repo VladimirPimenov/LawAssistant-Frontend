@@ -1,0 +1,13 @@
+.article-field {
+    padding: 10px;
+    
+}
+
+.article-field .article-title {
+    font-weight: bold;
+}
+
+.article-field .article-text {
+    text-align: justify;
+    text-indent: 1.25em;
+}

@@ -1,12 +1,17 @@
-.report-paragraph-form {
+.report-paragraph {
     display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+    flex-direction: column;
 
     margin: 10px 0;
 }
 
-.report-paragraph-text {
+.paragraph-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.paragraph-text {
     flex: 1;
     margin-right: 20px;   
     margin-left: 20px;
@@ -20,7 +25,7 @@
     border-bottom: 2px solid whitesmoke;
 }
 
-.report-paragraph-actions {
+.paragraph-actions {
     display: flex;
     flex-direction: row;
     align-items: center;  
@@ -31,12 +36,12 @@
     border-radius: 5px;
 }
 
-.report-paragraph-buttons {
+.paragraph-buttons {
     display: flex;
     flex-direction: column;
 }
 
-.report-paragraph-buttons button {
+.paragraph-buttons button {
     padding: 2px 5px;
     margin: 5px 0;
 
@@ -46,7 +51,31 @@
     cursor: pointer;
 }
 
-.report-paragraph-article {
+.paragraph-buttons button:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.paragraph-article {
+    display: flex;
+    flex-direction: column;
+}
+
+.paragraph-article button {
+    margin-top: 5px;
+    padding: 5px;
+
+    background-color: white;
+    border: solid 2px whitesmoke;
+    border-radius: 3px;
+
+    cursor: pointer;
+}
+
+.paragraph-article button:hover {
+    background-color: whitesmoke
+}
+
+.paragraph-articleinfo {
     display: flex;
     flex-direction: column;
     justify-content: center;

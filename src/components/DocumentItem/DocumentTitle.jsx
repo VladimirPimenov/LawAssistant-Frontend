@@ -7,7 +7,7 @@ const DocumentTitle = (props) => {
         <div className="doc-title">
             <img src={props.icon} />
             <Link to={`/docs/${props.children.contractId}`} style={{color:"royalblue"}}>
-                Документ №{props.children.contractId} «{props.children.title}»
+                Документ «{props.children.title}»
             </Link>
         </div>
     )
