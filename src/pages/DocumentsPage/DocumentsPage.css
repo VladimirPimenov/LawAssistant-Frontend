@@ -13,7 +13,7 @@
     min-height: 100vh;
 }
 
-.container-message {
+.docs-page .container-message {
     margin-top: 100px;
 
     display: flex;

@@ -3,9 +3,19 @@ import { Link } from "react-router";
 
 import NavbarItem from "./NavbarItem";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
-import DropdownItem from "../DropdownMenu/DropdownItem";
+import PageDropdownItem from "../DropdownMenu/PageDropdownItem";
+import NoticeDropdownItem from "../DropdownMenu/NoticeDropdownItem";
 
-const Navbar = () => {
+const Navbar = ({notifications, onUpdateNotification}) => {
+
+    const unreadNotifications = notifications?.filter(n => !n.isReaded)
+    const lastNotifications = unreadNotifications?.slice(0, 3)
+
+    let notificationsText = "Уведомления"
+
+    if(unreadNotifications?.length > 0)
+        notificationsText += ` (${unreadNotifications.length})`
+
     return (
         <header>
             <nav>
@@ -17,13 +27,25 @@ const Navbar = () => {
                 <div className="navbar-options">
                     <NavbarItem title={"Личный кабинет"}>
                         <DropdownMenu>
-                            <DropdownItem ref="/profile">Профиль</DropdownItem>
-                            <DropdownItem ref="/docs">Документы</DropdownItem>
-                            <DropdownItem ref="/reports">Отчёты</DropdownItem>
+                            <PageDropdownItem ref="/profile">Профиль</PageDropdownItem>
+                            <PageDropdownItem ref="/docs">Документы</PageDropdownItem>
+                            <PageDropdownItem ref="/reports">Отчёты</PageDropdownItem>
                         </DropdownMenu>
                     </NavbarItem>
-                    <NavbarItem title={"Уведомления"}/>
-                    <NavbarItem title={"О продукте"}/>
+                    <NavbarItem title={notificationsText}>
+                        {(notifications != null && notifications.length != 0) 
+                            &&<DropdownMenu>
+                                {lastNotifications.map(notification => 
+                                    <NoticeDropdownItem 
+                                        key={notification.notificationId}
+                                        notification={notification}
+                                        onUpdateNotification={onUpdateNotification}
+                                    />
+                                )}
+                            </DropdownMenu>
+                        }
+                    </NavbarItem>
+                    <NavbarItem ref="/" title={"О продукте"}/>
                 </div>
             </nav>
         </header>

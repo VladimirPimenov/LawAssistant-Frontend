@@ -1,0 +1,24 @@
+.notice-dropdown-item {
+    padding: 6px;
+    margin-left: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    font-size: 15px;
+    border-radius: 5px;   
+    color: black;
+}
+
+.notice-dropdown-item:hover {
+    color: gray;
+}
+
+.check-notice {
+    color: royalblue;
+    font-size: 12px;
+}
+
+.check-notice:hover{
+    text-decoration: underline;
+}

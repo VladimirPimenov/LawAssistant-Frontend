@@ -1,0 +1,33 @@
+.notification-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    padding: 5px;
+    margin: 5px;
+
+    border: 2px solid whitesmoke;
+    border-radius: 3px;
+}
+
+.notification-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.notification-info .date {
+    margin: 0 5px;
+    padding-right: 5px;
+    border-right: 2px solid silver;
+}
+
+.notification-actions {
+    display: flex;
+}
+
+.notification-actions img {
+    margin: 0 10px;
+    width: 25px;
+    height: 25px;
+}

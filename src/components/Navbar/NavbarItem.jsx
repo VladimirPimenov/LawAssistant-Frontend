@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import './NavbarItem.css'
 
+import { Link } from "react-router";
+
 const NavbarItem = (props) => {
     const [isMenuOpened, setMenuOpened] = useState(false)
 
     return (
+        <Link to={props.ref == null ? "#" : props.ref}>
         <div className="navbar-item" onClick={() => setMenuOpened(!isMenuOpened)}>
-            <a href = {props.ref == null ? "#" : props.ref}>{props.title}</a>
+            {props.title}
             {isMenuOpened && props.children}
         </div>
+        </Link>
 
     )
 }

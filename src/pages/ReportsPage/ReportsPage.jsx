@@ -12,7 +12,7 @@ const ReportsPage = ({reports, onRemoveReport}) => {
             <div className="docs-container">
                 <FilterOptionsList>
                     <FilterOption>По дате проверки</FilterOption>
-                    <FilterOption>По проценту совпадения</FilterOption>
+                    <FilterOption>По документу</FilterOption>
                 </FilterOptionsList>
                 
                 <ItemsContainer>

@@ -1,8 +1,9 @@
 import "./ProfilePage.css"
 
 import defaultAvatar from "../../assets/icons/profilepage/default_avatar.png"
+import NotificationsList from "../../components/NotificationsList/NotificationsList"
 
-const ProfilePage = ({lawyer, onUpdateLawyer}) => {
+const ProfilePage = ({lawyer, lawyerNotifications, onUpdateLawyer, onRemoveNotification}) => {
     return (
         <div className="profile-page">
             <div className="profile-container profile-data">
@@ -13,9 +14,10 @@ const ProfilePage = ({lawyer, onUpdateLawyer}) => {
                 </div>
             </div>
 
-            <div className="profile-container notifications-list">
-                Уведомления
-            </div>
+            <NotificationsList 
+                notifications={lawyerNotifications} 
+                onRemoveNotification={onRemoveNotification} 
+            />
         </div>
     )
 }
