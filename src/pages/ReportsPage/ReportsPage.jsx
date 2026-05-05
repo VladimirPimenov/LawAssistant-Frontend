@@ -7,12 +7,20 @@ import ItemsContainer from "../../components/ItemsContainer/ItemsContainer";
 import ReportItem from "../../components/ReportItem/ReportItem";
 
 const ReportsPage = ({reports, onRemoveReport}) => {
+    const filterReportByDate = () => {
+        console.log("Фильтрация по дате")
+    }
+
+    const filterReportByDocTitle = () => {
+        console.log("Фильтрация по документу")
+    }
+
     return (
         <div className="docs-page">
             <div className="docs-container">
                 <FilterOptionsList>
-                    <FilterOption>По дате проверки</FilterOption>
-                    <FilterOption>По документу</FilterOption>
+                    <FilterOption onOptionSelected={filterReportByDate}>По дате проверки</FilterOption>
+                    <FilterOption onOptionSelected={filterReportByDocTitle}>По документу</FilterOption>
                 </FilterOptionsList>
                 
                 <ItemsContainer>

@@ -45,7 +45,9 @@ const Navbar = ({notifications, onUpdateNotification}) => {
                             </DropdownMenu>
                         }
                     </NavbarItem>
-                    <NavbarItem ref="/" title={"О продукте"}/>
+                    <Link to="/">
+                        <NavbarItem title={"О продукте"}/>
+                    </Link>
                 </div>
             </nav>
         </header>

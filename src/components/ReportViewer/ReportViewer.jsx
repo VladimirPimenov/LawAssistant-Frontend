@@ -9,7 +9,7 @@ const ReportViewer = ({report}) => {
                 ? <div className="no-doc-message">Отчёт не загружен!</div>
                 : <div className="report-text-container" style={{ overflow: 'visible', maxHeight: 'none' }}>
                     { report.results.map(p => 
-                            <ReportParagraph reportParagraph={p} />
+                            <ReportParagraph key={p.paragraph.paragraphId} reportParagraph={p} />
                         )
                     }
                 </div>
