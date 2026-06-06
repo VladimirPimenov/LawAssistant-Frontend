@@ -17,6 +17,7 @@ const ItemCard = ({doc, onRemoveDoc, onCreateReport}) => {
                 }
             </div>
             <div>Дата создания: {doc.createdDate.replace('T', ' ')}</div>
+            <div>Дата изменения: {doc.modifiedDate.replace('T', ' ')}</div>
             <div className="options-list">
                 <LinkButton 
                     icon={createReportIcon} 

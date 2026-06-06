@@ -3,10 +3,10 @@ import "./App.css"
 import { Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
 
-import { createContract, getContract, getLawyerContracts, removeContract, updateContract, getContractFile } from "./services/contract";
-import { getLawyersList } from "./services/lawyer";
-import { getLawyerReports, removeReport, createReport, getReport } from "./services/report";
-import { getLawyerNotifications, removeNotification, updateNotification } from "./services/notifications";
+import { createContract, getContract, removeContract, updateContract, getContractFile } from "./services/contracts";
+import { getLawyersList, getLawyerReports, getLawyerNotifications, getLawyerContracts } from "./services/lawyers";
+import { removeReport, createReport, getReport } from "./services/reports";
+import { removeNotification, updateNotification } from "./services/notifications";
 
 import Navbar from "./components/Navbar/Navbar";
 

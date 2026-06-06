@@ -1,23 +1,11 @@
 import axios from "axios"
 
 const API_URL = "https://localhost:7286"
-const CONTRACT_API_URL = `${API_URL}/contract`
+const CONTRACT_API_URL = `${API_URL}/contracts`
 
 export const getContract = async (contractId) => {
     return axios
-        .get(`${CONTRACT_API_URL}/get-contract`, {params: {contractId}})
-        .then(responce => {
-            return responce.data
-        })
-        .catch(error => {
-            console.log(error)
-            return null
-        })
-}
-
-export const getLawyerContracts = async (lawyerId) => {
-    return axios
-        .get(`${CONTRACT_API_URL}/get-lawyer-contracts`, {params:{lawyerId}})
+        .get(`${CONTRACT_API_URL}`, {params: {contractId}})
         .then(responce => {
             return responce.data
         })
@@ -29,7 +17,7 @@ export const getLawyerContracts = async (lawyerId) => {
 
 export const getContractFile = async (contractId) => {
     return axios
-        .get(`${CONTRACT_API_URL}/get-contract-file`, {params:{contractId}, responseType: 'blob'})
+        .get(`${CONTRACT_API_URL}/${contractId}/file`, {responseType: 'blob'})
         .then(response => {
             const file = new File(
                 [response.data], 
@@ -53,7 +41,7 @@ export const createContract = async (contract) => {
     contractRequest.append('contractFile', contract.contractFile)
 
     return axios
-        .post(`${CONTRACT_API_URL}/create-contract`, contractRequest, 
+        .post(`${CONTRACT_API_URL}`, contractRequest, 
                 { headers: { "Content-Type": "multipart/form-data" }})
         .then(response => {
             return response.data
@@ -63,7 +51,7 @@ export const createContract = async (contract) => {
 
 export const updateContract = async (contract) => {
     return axios
-        .put(`${CONTRACT_API_URL}/update-contract`, contract)
+        .put(`${CONTRACT_API_URL}`, contract)
         .then(responce => {
             return responce.data
         })
@@ -75,7 +63,7 @@ export const updateContract = async (contract) => {
 
 export const removeContract = async (contractId) => {
     return axios
-        .delete(`${CONTRACT_API_URL}/delete-contract`, {params: {contractId}} )
+        .delete(`${CONTRACT_API_URL}`, {params: {contractId}} )
         .then(responce => {
             return responce.data
         })

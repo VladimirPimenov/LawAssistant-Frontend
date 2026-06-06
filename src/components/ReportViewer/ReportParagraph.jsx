@@ -10,7 +10,8 @@ const ReportParagraph = ({reportParagraph}) => {
     const paragraphVariants = reportParagraph.comparisonResults
     const variantsCount = reportParagraph.comparisonResults.length
 
-    const article = reportParagraph.comparisonResults[currentVariant].article
+    const article = reportParagraph.comparisonResults[currentVariant].article.article
+    const actTitle = reportParagraph.comparisonResults[currentVariant].article.actTitle
     const matchValue = (reportParagraph.comparisonResults[currentVariant].matchValue * 100).toFixed(2)
 
     const prevVariant = () => {
@@ -38,6 +39,9 @@ const ReportParagraph = ({reportParagraph}) => {
                 </div>
                 <div className="paragraph-article">
                     <div className="paragraph-articleinfo">
+                    <div style={{fontWeight: "bold"}}>
+                       {actTitle}
+                    </div>
                     <div>
                         Статья №{article.number}
                     </div>
