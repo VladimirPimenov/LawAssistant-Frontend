@@ -1,11 +1,10 @@
-import axios from "axios"
+import api from "./api"
 
-const API_URL = "https://localhost:7286"
-const NOTICE_API_URL = `${API_URL}/notifications`
+const NOTICE_API_URL = "/notifications"
 
 export const updateNotification = async (notification) => {
-    return axios
-        .put(`${NOTICE_API_URL}`, notification)
+    return api
+        .put(`${NOTICE_API_URL}`, notification, { withCredentials: true })
         .then(response => {
             return response.data
         })
@@ -16,8 +15,8 @@ export const updateNotification = async (notification) => {
 }
 
 export const removeNotification = async (notificationId) => {
-    return axios
-        .delete(`${NOTICE_API_URL}`, {params:{notificationId}})
+    return api
+        .delete(`${NOTICE_API_URL}`, {params:{notificationId}, withCredentials: true})
         .then(response => {
             return response.data
         })

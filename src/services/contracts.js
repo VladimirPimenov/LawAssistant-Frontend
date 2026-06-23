@@ -1,11 +1,10 @@
-import axios from "axios"
+import api from "./api"
 
-const API_URL = "https://localhost:7286"
-const CONTRACT_API_URL = `${API_URL}/contracts`
+const CONTRACT_API_URL = `/contracts`
 
 export const getContract = async (contractId) => {
-    return axios
-        .get(`${CONTRACT_API_URL}`, {params: {contractId}})
+    return api
+        .get(`${CONTRACT_API_URL}`, {params: {contractId}, withCredentials: true})
         .then(responce => {
             return responce.data
         })
@@ -16,8 +15,8 @@ export const getContract = async (contractId) => {
 }
 
 export const getContractFile = async (contractId) => {
-    return axios
-        .get(`${CONTRACT_API_URL}/${contractId}/file`, {responseType: 'blob'})
+    return api
+        .get(`${CONTRACT_API_URL}/${contractId}/file`, {responseType: 'blob', withCredentials: true})
         .then(response => {
             const file = new File(
                 [response.data], 
@@ -40,9 +39,9 @@ export const createContract = async (contract) => {
     })
     contractRequest.append('contractFile', contract.contractFile)
 
-    return axios
+    return api
         .post(`${CONTRACT_API_URL}`, contractRequest, 
-                { headers: { "Content-Type": "multipart/form-data" }})
+                { headers: { "Content-Type": "multipart/form-data" }, withCredentials: true })
         .then(response => {
             return response.data
         })
@@ -50,8 +49,8 @@ export const createContract = async (contract) => {
 }
 
 export const updateContract = async (contract) => {
-    return axios
-        .put(`${CONTRACT_API_URL}`, contract)
+    return api
+        .put(`${CONTRACT_API_URL}`, contract, { withCredentials: true })
         .then(responce => {
             return responce.data
         })
@@ -62,8 +61,8 @@ export const updateContract = async (contract) => {
 }
 
 export const removeContract = async (contractId) => {
-    return axios
-        .delete(`${CONTRACT_API_URL}`, {params: {contractId}} )
+    return api
+        .delete(`${CONTRACT_API_URL}`, {params: {contractId}, withCredentials: true} )
         .then(responce => {
             return responce.data
         })

@@ -7,6 +7,7 @@ import { createContract, getContract, removeContract, updateContract, getContrac
 import { getLawyersList, getLawyerReports, getLawyerNotifications, getLawyerContracts } from "./services/lawyers";
 import { removeReport, createReport, getReport } from "./services/reports";
 import { removeNotification, updateNotification } from "./services/notifications";
+import { useAuth } from "./services/authContext";
 
 import Navbar from "./components/Navbar/Navbar";
 
@@ -17,19 +18,19 @@ import ReportsPage from "./pages/ReportsPage/ReportsPage";
 import DocumentFormPage from "./pages/DocumentFormPage/DocumentFormPage";
 import DocumentViewPage from "./pages/DocumentViewPage/DocumentViewPage";
 import ReportViewPage from "./pages/ReportViewPage/ReportViewPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 import { ToastContainer, toast } from "react-toastify";
 
 function App() {
+  const { user } = useAuth()
   const [docs, setDocs] = useState(null)
   const [lawyers, setLawyers] = useState(null)
   const [reports, setReports] = useState(null)
   const [notifications, setNotifications] = useState(null)
 
-  const testLawyer = {lawyerId: 5, firstName: "Владимир", lastName: "Пименов", email: "pimenov@gmail.com"}
-
   const fetchContracts = async() => {
-      let contracts = await getLawyerContracts(testLawyer.lawyerId)
+      let contracts = await getLawyerContracts(user.lawyerId)
       setDocs(contracts)
 
       return contracts
@@ -43,20 +44,22 @@ function App() {
   }
 
   const fetchReports = async() => {
-    let reports = await getLawyerReports(testLawyer.lawyerId)
+    let reports = await getLawyerReports(user.lawyerId)
     setReports(reports)
 
     return reports
   }
 
   const fetchNotifications = async() => {
-    let notifications = await getLawyerNotifications(testLawyer.lawyerId)
+    let notifications = await getLawyerNotifications(user.lawyerId)
     setNotifications(notifications)
 
     return notifications
   }
 
   useEffect(() => {
+    if (!user) return
+
     const loadData = async () => {
       const [contractsData, reportsData, lawyersData, noticeData] =  await Promise.all([
         fetchContracts(),
@@ -68,7 +71,7 @@ function App() {
         toast.error("Ошибка при подключении к серверу")
     }
     loadData()
-  }, [])
+  }, [user])
 
   const getDocument = async (id) => {
     const doc = await getContract(id)
@@ -143,53 +146,59 @@ function App() {
             element={<HomePage />}
           />
           <Route 
-            path="/profile" 
-            element={<ProfilePage 
-              lawyer={testLawyer}
-              lawyerNotifications={notifications}
-              onRemoveNotification={removeNotice}
-            />}
+            path="/login" 
+            element={<LoginPage />}
           />
-          <Route 
-            path="/docs" 
-            element={<DocumentsPage 
-              docs={docs} 
-              onRemoveDoc={removeDocument}
-              onCreateReport={createRep}/>}
-          />
-          <Route 
-            path="/reports" 
-            element={<ReportsPage 
-              reports={reports}
-              onRemoveReport={removeRep}/>}
-          />
-          <Route 
-            path="/docs/create-doc" 
-            element={<DocumentFormPage 
-              lawyers={lawyers}
-              formTitle="Добавить документ"
-              onAddDoc={addDocument}/>}
-              />
-          <Route 
-            path="/docs/update-doc/:id" 
-            element={<DocumentFormPage 
-              formTitle={"Редактировать документ"}
-              lawyers={lawyers}
-              getDoc={getDocument}
-              getDocFile={getDocumentFile}
-              onEditDoc={editDocument}/>}
-          />
-          <Route
-            path="docs/:id"
-            element={<DocumentViewPage 
-              getDoc={getDocument}
-              getDocFile={getDocumentFile}/>}
-          />
-          <Route
-            path="reports/:id"
-            element={<ReportViewPage 
-              getRep={getRep}/>}
-          />
+          {user && <>
+            <Route 
+              path="/profile" 
+              element={<ProfilePage 
+                lawyer={user}
+                lawyerNotifications={notifications}
+                onRemoveNotification={removeNotice}
+              />}
+            />
+            <Route 
+              path="/docs" 
+              element={<DocumentsPage 
+                docs={docs} 
+                onRemoveDoc={removeDocument}
+                onCreateReport={createRep}/>}
+            />
+            <Route 
+              path="/reports" 
+              element={<ReportsPage 
+                reports={reports}
+                onRemoveReport={removeRep}/>}
+            />
+            <Route 
+              path="/docs/create-doc" 
+              element={<DocumentFormPage 
+                lawyers={lawyers}
+                formTitle="Добавить документ"
+                onAddDoc={addDocument}/>}
+                />
+            <Route 
+              path="/docs/update-doc/:id" 
+              element={<DocumentFormPage 
+                formTitle={"Редактировать документ"}
+                lawyers={lawyers}
+                getDoc={getDocument}
+                getDocFile={getDocumentFile}
+                onEditDoc={editDocument}/>}
+            />
+            <Route
+              path="docs/:id"
+              element={<DocumentViewPage 
+                getDoc={getDocument}
+                getDocFile={getDocumentFile}/>}
+            />
+            <Route
+              path="reports/:id"
+              element={<ReportViewPage 
+                getRep={getRep}/>}
+            />
+          </>}
         </Routes>
         <ToastContainer />
       </div>

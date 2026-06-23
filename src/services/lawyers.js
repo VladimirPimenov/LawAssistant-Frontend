@@ -1,11 +1,10 @@
-import axios from "axios"
+import api from "./api"
 
-const API_URL = "https://localhost:7286"
-const LAWYER_API_URL = `${API_URL}/lawyers`
+const LAWYER_API_URL = `/lawyers`
 
 export const getLawyersList = async () => {
-    return axios
-        .get(`${LAWYER_API_URL}`)
+    return api
+        .get(`${LAWYER_API_URL}`, { withCredentials: true })
         .then(responce => {
             return responce.data
         })
@@ -16,8 +15,8 @@ export const getLawyersList = async () => {
 }
 
 export const getLawyerContracts = async (lawyerId) => {
-    return axios
-        .get(`${LAWYER_API_URL}/${lawyerId}/contracts`)
+    return api
+        .get(`${LAWYER_API_URL}/${lawyerId}/contracts`, { withCredentials: true })
         .then(responce => {
             return responce.data
         })
@@ -28,8 +27,8 @@ export const getLawyerContracts = async (lawyerId) => {
 }
 
 export const getLawyerReports = async (lawyerId) => {
-    return axios
-        .get(`${LAWYER_API_URL}/${lawyerId}/reports`)
+    return api
+        .get(`${LAWYER_API_URL}/${lawyerId}/reports`, { withCredentials: true })
         .then(responce => {
             return responce.data
         })
@@ -40,8 +39,8 @@ export const getLawyerReports = async (lawyerId) => {
 }
 
 export const getLawyerNotifications = async (lawyerId) => {
-    return axios
-        .get(`${LAWYER_API_URL}/${lawyerId}/notifications`)
+    return api
+        .get(`${LAWYER_API_URL}/${lawyerId}/notifications`, { withCredentials: true })
         .then(response => {
             return response.data
         })

@@ -1,11 +1,10 @@
-import axios from "axios"
+import api from "./api"
 
-const API_URL = "https://localhost:7286"
-const REPORT_API_URL = `${API_URL}/reports`
+const REPORT_API_URL = `/reports`
 
 export const getReport = async (reportId) => {
-    return axios
-        .get(`${REPORT_API_URL}`, {params:{reportId}})
+    return api
+        .get(`${REPORT_API_URL}`, {params:{reportId}, withCredentials: true})
         .then(responce => {
             return responce.data
         })
@@ -16,8 +15,8 @@ export const getReport = async (reportId) => {
 }
 
 export const createReport = async (contractId) => {
-    return axios
-        .post(`${REPORT_API_URL}`, null, {params:{contractId}})
+    return api
+        .post(`${REPORT_API_URL}`, null, {params:{contractId}, withCredentials: true})
         .then(responce => {
             return responce.data
         })
@@ -28,8 +27,8 @@ export const createReport = async (contractId) => {
 }
 
 export const removeReport = async (reportId) => {
-    return axios
-        .delete(`${REPORT_API_URL}`, {params:{reportId}})
+    return api
+        .delete(`${REPORT_API_URL}`, {params:{reportId}, withCredentials: true})
         .then(responce => {
             return responce.data
         })
