@@ -32,6 +32,7 @@ export const getContractFile = async (contractId) => {
 }
 
 export const createContract = async (contract) => {
+    console.log(contract)
     const contractRequest = new FormData()
     contractRequest.append('title', contract.title)
     contract.authorsId.forEach(id => {
