@@ -9,6 +9,7 @@ const ItemCard = ({report, onRemoveReport}) => {
     return (
         <div className="panel">
             <div>Дата создания: {report.reportedDate.replace('T', ' ')}</div>
+            <div>Статус: {report.status}</div>
             <div className="options-list">
                 <LinkButton 
                     icon={removeIcon} 

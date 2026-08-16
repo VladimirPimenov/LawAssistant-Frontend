@@ -2,7 +2,7 @@ import "./LoginPage.css"
 
 import { useState } from "react"
 import { useNavigate } from "react-router"
-import { useAuth } from "../../services/authContext"
+import { useAuth } from "../../api/authContext"
 
 const LoginPage = () => {
     const [email, setEmail] = useState("")

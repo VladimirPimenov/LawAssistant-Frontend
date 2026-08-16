@@ -5,7 +5,7 @@ import NavbarItem from "./NavbarItem";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import PageDropdownItem from "../DropdownMenu/PageDropdownItem";
 import NoticeDropdownItem from "../DropdownMenu/NoticeDropdownItem";
-import { useAuth } from "../../services/authContext";
+import { useAuth } from "../../api/authContext";
 
 const Navbar = ({notifications, onUpdateNotification}) => {
     const { user, logout } = useAuth()

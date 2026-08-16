@@ -3,11 +3,12 @@ import "./App.css"
 import { Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
 
-import { createContract, getContract, removeContract, updateContract, getContractFile } from "./services/contracts";
-import { getLawyersList, getLawyerReports, getLawyerNotifications, getLawyerContracts } from "./services/lawyers";
-import { removeReport, createReport, getReport } from "./services/reports";
-import { removeNotification, updateNotification } from "./services/notifications";
-import { useAuth } from "./services/authContext";
+import { createContract, getContract, removeContract, updateContract, getContractFile } from "./api/contracts";
+import { getLawyersList, getLawyerReports, getLawyerContracts } from "./api/lawyers";
+import { getAccountNotifications } from "./api/accounts";
+import { removeReport, createReport, getReport } from "./api/reports";
+import { removeNotification, updateNotification } from "./api/notifications";
+import { useAuth } from "./api/authContext";
 
 import Navbar from "./components/Navbar/Navbar";
 
@@ -30,7 +31,7 @@ function App() {
   const [notifications, setNotifications] = useState(null)
 
   const fetchContracts = async() => {
-      let contracts = await getLawyerContracts(user.lawyerId)
+      let contracts = await getLawyerContracts(user.accountId)
       setDocs(contracts)
 
       return contracts
@@ -44,14 +45,14 @@ function App() {
   }
 
   const fetchReports = async() => {
-    let reports = await getLawyerReports(user.lawyerId)
+    let reports = await getLawyerReports(user.accountId)
     setReports(reports)
 
     return reports
   }
 
   const fetchNotifications = async() => {
-    let notifications = await getLawyerNotifications(user.lawyerId)
+    let notifications = await getAccountNotifications(user.accountId)
     setNotifications(notifications)
 
     return notifications

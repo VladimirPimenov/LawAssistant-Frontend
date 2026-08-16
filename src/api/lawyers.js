@@ -37,15 +37,3 @@ export const getLawyerReports = async (lawyerId) => {
             return null
         })
 }
-
-export const getLawyerNotifications = async (lawyerId) => {
-    return api
-        .get(`${LAWYER_API_URL}/${lawyerId}/notifications`, { withCredentials: true })
-        .then(response => {
-            return response.data
-        })
-        .catch(error => {
-            console.log(error)
-            return null
-        })
-}
